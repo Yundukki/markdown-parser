@@ -26,6 +26,14 @@ public class MarkdownParse {
                 closeParen = markdown.length();
             }
 
+            //fixes test file 2
+            else if(markdown.contains("[") == false && markdown.contains("]") == false){
+                openBracket = markdown.indexOf(";", currentIndex);
+                closeBracket = markdown.indexOf(";", openBracket);
+                openParen = markdown.indexOf("(", closeBracket);
+                closeParen = markdown.indexOf(")", openParen);
+            }
+
             else{
                 openBracket = markdown.indexOf("[", currentIndex);
                 closeBracket = markdown.indexOf("]", openBracket);
