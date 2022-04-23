@@ -18,20 +18,23 @@ public class MarkdownParse {
         int openParen = 0;
         int closeParen = 0;
         while(currentIndex < markdown.length()) {
+            
             //fixes test file 3
-            if (markdown.contains("(") == false && markdown.contains(")") == false){
-                openBracket = markdown.indexOf("[", currentIndex);
-                closeBracket = markdown.indexOf("]", openBracket);
-                openParen = closeBracket;
-                closeParen = markdown.length();
-            }
+            // if (markdown.contains("(") == false && markdown.contains(")") == false){
+            //     openBracket = markdown.indexOf("[", currentIndex);
+            //     closeBracket = markdown.indexOf("]", openBracket);
+            //     openParen = closeBracket;
+            //     closeParen = markdown.length();
+            // }
 
             //fixes test file 2
-            else if(markdown.contains("[") == false && markdown.contains("]") == false){
+            if(markdown.contains("[") == false && markdown.contains("]") == false){
                 openBracket = markdown.indexOf(";", currentIndex);
                 closeBracket = markdown.indexOf(";", openBracket);
                 openParen = markdown.indexOf("(", closeBracket);
-                closeParen = markdown.indexOf(")", openParen);
+                closeParen = markdown.lastIndexOf(")", markdown.length());
+                toReturn.add(markdown.substring(openParen + 1, closeParen-1));
+                break;
             }
 
             else{
@@ -45,10 +48,10 @@ public class MarkdownParse {
             currentIndex = closeParen + 1;
 
             //fixes test file 4 
-            String tempSubStr = markdown.substring(closeParen, markdown.length());
-            if (tempSubStr.contains("[") == false){
-                break;
-            }
+            // String tempSubStr = markdown.substring(closeParen, markdown.length());
+            // if (tempSubStr.contains("[") == false){
+            //     break;
+            // }
             
         }
 
