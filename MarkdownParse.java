@@ -19,16 +19,16 @@ public class MarkdownParse {
         int closeParen = 0;
         while(currentIndex < markdown.length()) {
             
-            //fixes test file 3
-            // if (markdown.contains("(") == false && markdown.contains(")") == false){
-            //     openBracket = markdown.indexOf("[", currentIndex);
-            //     closeBracket = markdown.indexOf("]", openBracket);
-            //     openParen = closeBracket;
-            //     closeParen = markdown.length();
-            // }
+            // // fixes test file 3
+            if (markdown.contains("(") == false && markdown.contains(")") == false){
+                openBracket = markdown.indexOf("[", currentIndex);
+                closeBracket = markdown.indexOf("]", openBracket);
+                openParen = closeBracket;
+                closeParen = markdown.length();
+            }
 
-            //fixes test file 2
-            if(markdown.contains("[") == false && markdown.contains("]") == false){
+            // fixes test file 2
+            else if(markdown.contains("[") == false && markdown.contains("]") == false){
                 openBracket = markdown.indexOf(";", currentIndex);
                 closeBracket = markdown.indexOf(";", openBracket);
                 openParen = markdown.indexOf("(", closeBracket);
@@ -48,10 +48,10 @@ public class MarkdownParse {
             currentIndex = closeParen + 1;
 
             //fixes test file 4 
-            // String tempSubStr = markdown.substring(closeParen, markdown.length());
-            // if (tempSubStr.contains("[") == false){
-            //     break;
-            // }
+            String tempSubStr = markdown.substring(closeParen, markdown.length());
+            if (tempSubStr.contains("[") == false){
+                break;
+            }
             
         }
 
