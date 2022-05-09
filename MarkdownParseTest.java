@@ -9,6 +9,11 @@ import java.util.List;
 public class MarkdownParseTest { //creates MarkdownParse test class
 
     @Test
+    public void add(){
+	assertEquals(2, 1+1);
+    }
+
+    @Test
     public void GetLink() throws IOException{
         assertEquals(List.of("https://something.com", "some-thing.html") 
         ,MarkdownParse.getLinks(Files.readString(Path.of("test-file.md"))));
