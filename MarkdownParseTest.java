@@ -7,7 +7,6 @@ import java.util.List;
 //imports junit
 
 public class MarkdownParseTest { //creates MarkdownParse test class
-    
 
     @Test
     public void GetLink() throws IOException{
