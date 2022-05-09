@@ -9,10 +9,10 @@ import java.util.List;
 public class MarkdownParseTest { //creates MarkdownParse test class
 
     @Test
-    public void add() throws IOException{
-        assertEquals(2, 1+1);
+    public void add(){
+	assertEquals(2, 1+1);
     }
-    
+
     @Test
     public void GetLink() throws IOException{
         assertEquals(List.of("https://something.com", "some-thing.html") 
