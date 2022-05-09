@@ -42,7 +42,9 @@ public class MarkdownParse {
                 openParen = markdown.indexOf("(", closeBracket);
                 closeParen = markdown.indexOf(")", openParen);  
             }
-                
+            //random comment here     
+
+
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
 
@@ -64,8 +66,8 @@ public class MarkdownParse {
         ArrayList<String> links = getLinks(content);
 	    System.out.println(links);
       
-
+	//hi 
         
 
     }
-}
+	}
